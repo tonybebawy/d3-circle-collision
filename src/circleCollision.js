@@ -70,7 +70,6 @@ function groupData(groups, hide) {
       
       if (hide) {
         circle.style("display", "none");
-        console.log("hide");
       }
     });
     
