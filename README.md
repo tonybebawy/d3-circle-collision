@@ -4,7 +4,7 @@ Circle collision detection for D3
 
 ## Installing
 
-If you use NPM, `npm install d3-foo`. Otherwise, download the [latest release](https://github.com/d3/d3-circleCollision/releases/latest).
+If you use NPM, `npm install d3-circleCollision`. Otherwise, download the [latest release](https://github.com/d3/d3-circleCollision/releases/latest).
 
 ## API Reference
 
