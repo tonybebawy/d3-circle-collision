@@ -50,7 +50,7 @@ function groups(circles) {
 }
 
 
-function groupData(groups) {
+function groupData(groups, hide) {
   let newlyBoundData = [];
   
   groups.forEach(function(group) {
@@ -61,11 +61,17 @@ function groupData(groups) {
     
     group.forEach(function(element) {
       let circle = d3.select(element);
+      
       obj.data.push(circle.datum());
       
       let [x, y] = parseTransform(circle.attr("transform"));
       xSum += x;
       ySum += y;
+      
+      if (hide) {
+        circle.style("display", "none");
+        console.log("hide");
+      }
     });
     
     let ax = Math.floor(xSum/group.length);
@@ -80,8 +86,8 @@ function groupData(groups) {
   return newlyBoundData;
 }
 
-export default function(selection) {
-  let newData = groupData(groups(selection));
+export default function(selection, hide=false) {
+  let newData = groupData(groups(selection), hide);
 
   return function(tag) {
     return d3.select(selection.node().parentNode)
