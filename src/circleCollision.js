@@ -1,3 +1,3 @@
-export default function() {
-  return 42;
-};
+export default function(selection) {
+  console.log(selection);
+}
