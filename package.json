@@ -18,12 +18,13 @@
   "scripts": {
     "pretest": "rm -rf build && mkdir build && rollup -f umd -n d3 -o build/d3-circleCollision.js -- index.js",
     "test": "tape 'test/**/*-test.js'",
-    "prepublish": "npm run test && uglifyjs build/d3-circleCollision.js -c -m -o build/d3-circleCollision.min.js",
+    "prepublish": "npm run test && terser build/d3-circleCollision.js -c -m -o build/d3-circleCollision.min.js",
     "postpublish": "zip -j build/d3-circleCollision.zip -- LICENSE README.md build/d3-circleCollision.js build/d3-circleCollision.min.js"
   },
   "devDependencies": {
     "rollup": "0.27",
     "tape": "4",
-    "uglify-js": "2"
-  }
+    "terser": "^4.1.2"
+  },
+  "dependencies": {}
 }
