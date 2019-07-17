@@ -5,7 +5,9 @@
   "description": "circle collision detection for D3",
   "keywords": [
     "d3",
-    "d3-module"
+    "d3-module",
+    "collision",
+    "detection"
   ],
   "license": "BSD-3-Clause",
   "main": "build/d3-circleCollision.js",
