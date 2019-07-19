@@ -12,6 +12,7 @@ https://cdn.jsdelivr.net/npm/d3-circleCollision@1.0.0
 ```
 <script src="https://cdn.jsdelivr.net/npm/d3-circleCollision@1.0.0"></script>
 ```
+### Download
 Download the [latest release](https://github.com/d3/d3-circleCollision/releases/latest).
 
 ## API Reference
