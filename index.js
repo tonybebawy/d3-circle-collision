@@ -1,1 +1,1 @@
-export {default as circleCollision} from "./src/circleCollision";
+export { default as circleCollision } from "./src/circleCollision";
