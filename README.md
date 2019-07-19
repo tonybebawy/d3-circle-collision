@@ -19,4 +19,4 @@ Download the [latest release](https://github.com/d3/d3-circleCollision/releases/
 
 <a href="#circleCollision" name="circleCollision">#</a> <b>circleCollision</b>(*circles*)
 
-takes in a selection of circles and returns an array of objects. Each object in the array represents a group in which the circles collide and contains the coordinates of collisions and the combined data in the form of an array of the collided circles
+takes in a selection of circles and returns an array of objects. Each object in the array represents a group in which the circles collide and contains the collision coordinates and the combined data in the form of an array of the collided circles
