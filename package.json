@@ -1,6 +1,6 @@
 {
   "name": "d3-circle-collision",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Tony Bebawy",
   "description": "circle collision detection for D3",
   "keywords": [
@@ -10,7 +10,7 @@
     "detection"
   ],
   "license": "BSD-3-Clause",
-  "main": "build/d3-circleCollision.js",
+  "main": "dist/d3-circleCollision.js",
   "jsnext:main": "index",
   "homepage": "https://github.com/tonybebawy/d3-circleCollision",
   "repository": {
@@ -18,15 +18,17 @@
     "url": "https://github.com/tonybebawy/d3-circleCollision.git"
   },
   "scripts": {
-    "pretest": "rm -rf build && mkdir build && rollup -f umd -n d3 -o build/d3-circleCollision.js -- index.js",
-    "test": "tape 'test/**/*-test.js'",
-    "prepublish": "npm run test && terser build/d3-circleCollision.js -c -m -o build/d3-circleCollision.min.js",
-    "postpublish": "zip -j build/d3-circleCollision.zip -- LICENSE README.md build/d3-circleCollision.js build/d3-circleCollision.min.js"
+    "build": "rm -rf dist && mkdir dist && rollup -f umd -n d3 -o dist/d3-circleCollision.js -- index.js",
+    "test": "jest",
+    "prepublish": "npm test && npm run build",
+    "postpublish": "zip -j dist/d3-circleCollision.zip -- LICENSE README.md dist/d3-circleCollision.js"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "rollup": "0.27",
-    "tape": "4",
     "terser": "^4.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "d3-selection": "^1.4.0"
+  }
 }
