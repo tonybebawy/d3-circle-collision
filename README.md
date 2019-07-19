@@ -17,8 +17,6 @@ Download the [latest release](https://github.com/d3/d3-circleCollision/releases/
 
 ## API Reference
 
-YOUR API DOCUMENTATION HERE. Use bold for symbols (such as constructor and method names) and italics for instances. See the other D3 modules for examples.
-
 <a href="#circleCollision" name="circleCollision">#</a> <b>circleCollision</b>(*circles*)
 
 takes in a selection of circles and returns an array of objects. Each object in the array represents a group in which the circles collide. The object includes:
