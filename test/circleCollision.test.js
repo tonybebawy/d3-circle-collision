@@ -5,6 +5,23 @@ function render() {
     let DOM = new JSDOM("<html><body></body></html>");
     let window = DOM.window;
 
+
+    return d3Selection.select(window.document)
+        .select('body')
+        .append('svg')
+        .attr('width', 500)
+        .attr('height', 500);
+}
+
+test("svg rendering", () => {
+    let svg = render();
+    expect(svg.node().tagName.toLowerCase()).toBe("svg");
+    expect(svg.attr("height")).toBe("500");
+    expect(svg.attr("height")).toBe("500");
+});
+
+test("circle collisions", () => {
+    let svg = render();
     let data = [{
         "title": "circle1",
         "coordinates": {
@@ -19,12 +36,7 @@ function render() {
         }
     }];
 
-    return d3Selection.select(window.document)
-        .select('body')
-        .append('svg')
-        .attr('width', 500)
-        .attr('height', 500)
-        .selectAll('circle')
+    svg.selectAll('circle')
         .data(data)
         .enter()
         .append('circle')
@@ -32,10 +44,4 @@ function render() {
             return `translate(${d.coordinates.x},${d.coordinates.y})`
         })
         .attr('r', 10);
-}
-
-test("circles get created", () => {
-    let circles = render();
-
-    expect(circles.nodes().length).toBe(2);
 });

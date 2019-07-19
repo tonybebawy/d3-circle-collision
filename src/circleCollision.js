@@ -88,19 +88,5 @@ function groupData(groups, hide) {
 }
 
 export default function (selection, hide = false) {
-    let newData = groupData(groups(selection), hide);
-
-    return function (tag) {
-        return d3Selection.select(selection.node().parentNode)
-            .selectAll(tag)
-            .data(newData)
-            .enter()
-            .append(tag)
-            .attr("transform", function (d) {
-                let x = d.coordinates.x;
-                let y = d.coordinates.y;
-
-                return `translate(${x},${y})`;
-            });
-    }
+    return groupData(groups(selection), hide);
 }
