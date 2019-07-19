@@ -18,14 +18,20 @@
         "url": "https://github.com/tonybebawy/d3-circleCollision.git"
     },
     "scripts": {
-        "build": "rm -rf dist && mkdir dist && rollup -f umd -n d3 -o dist/d3-circleCollision.js -- index.js",
+        "build": "rm -rf dist && mkdir dist && rollup -c",
         "test": "jest",
         "prepublish": "npm test && npm run build",
         "postpublish": "zip -j dist/d3-circleCollision.zip -- LICENSE README.md dist/d3-circleCollision.js"
     },
     "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
         "jest": "^24.8.0",
-        "rollup": "0.27"
+        "rollup": "^1.10.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-uglify": "^6.0.2"
     },
     "dependencies": {
         "d3-selection": "^1.4.0"

@@ -1,4 +1,5 @@
-const d3Selection = require("d3-selection");
+import * as d3Selection from "d3-selection";
+// const d3Selection = require("d3-selection");
 
 function distance(pos1, pos2) {
     let [x1, y1] = pos1;
