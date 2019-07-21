@@ -6,6 +6,9 @@ Circle collision detection for D3
 
 ### NPM
 run `npm install d3-circleCollision` 
+```javascript
+const d3CircleCollision = require('d3CircleCollision');
+```
 
 ### CDN
 https://cdn.jsdelivr.net/npm/d3-circleCollision@1.0.0
