@@ -11,9 +11,9 @@ const d3CircleCollision = require('d3-circleCollision');
 ```
 
 ### CDN
-https://cdn.jsdelivr.net/npm/d3-circleCollision@1.0.0
+https://cdn.jsdelivr.net/npm/d3-circle-collision@1.0.0/dist/d3-circleCollision.min.js
 ```html
-<script src="https://cdn.jsdelivr.net/npm/d3-circleCollision@1.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-circle-collision@1.0.0/dist/d3-circleCollision.min.js"></script>
 ```
 ### Download
 Download the [latest release](https://github.com/d3/d3-circleCollision/releases/latest).
