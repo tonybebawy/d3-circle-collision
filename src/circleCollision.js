@@ -2,10 +2,8 @@ import * as d3Selection from "d3-selection";
 // const d3Selection = require("d3-selection");
 
 function distance(pos1, pos2) {
-    let x1 = pos1[0];
-    let y1 = pos1[1];
-    let x2 = pos2[0];
-    let y2 = pos2[1];
+    let [x1, y1] = pos1;
+    let [x2, y2] = pos2;
     
     let dx = x1 - x2;
     let dy = y1 - y2;
@@ -43,8 +41,6 @@ function groups(circles) {
                 let groupIndex = 0;
                 
                 groups.forEach(function (el, i) {
-                    
-                    // to change
                     if (includes(el, c1.node())) {
                         addToGroup = true;
                         groupIndex = i;
@@ -52,7 +48,6 @@ function groups(circles) {
                 });
 
                 if (addToGroup) {
-                    // to change
                     if (!includes(groups[groupIndex], c2.node())){
                         groups[groupIndex].push(c2.node());
                     }
