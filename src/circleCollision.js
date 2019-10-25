@@ -2,18 +2,29 @@ import * as d3Selection from "d3-selection";
 // const d3Selection = require("d3-selection");
 
 function distance(pos1, pos2) {
-    let [x1, y1] = pos1;
-    let [x2, y2] = pos2;
-
+    let x1 = pos1[0];
+    let y1 = pos1[1];
+    let x2 = pos2[0];
+    let y2 = pos2[1];
+    
     let dx = x1 - x2;
     let dy = y1 - y2;
-
+    
     return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 }
 
 function parseTransform(value) {
-    let values = value.substring(10, value.length - 1).split(',');
+    let values = value.substring(10, value.length - 1).split(/,| /);
     return [+values[0], +values[1]];
+}
+
+function includes(list, node1) {
+    for (let i=0;i<list.length;i++) {
+        if (list[i] == node1) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function groups(circles) {
@@ -22,7 +33,7 @@ function groups(circles) {
     circles.each(function (d) {
         let c1 = d3Selection.select(this);
         let pos1 = parseTransform(c1.attr("transform"));
-
+        
         circles.each(function (k) {
             let c2 = d3Selection.select(this);
             let pos2 = parseTransform(c2.attr("transform"));
@@ -30,17 +41,21 @@ function groups(circles) {
             if (+c1.attr("r") + +c2.attr("r") >= distance(pos1, pos2)) {
                 let addToGroup = false;
                 let groupIndex = 0;
-
+                
                 groups.forEach(function (el, i) {
-                    if (el.includes(c1.node())) {
+                    
+                    // to change
+                    if (includes(el, c1.node())) {
                         addToGroup = true;
                         groupIndex = i;
                     }
                 });
 
                 if (addToGroup) {
-                    if (!groups[groupIndex].includes(c2.node()))
+                    // to change
+                    if (!includes(groups[groupIndex], c2.node())){
                         groups[groupIndex].push(c2.node());
+                    }
                 } else {
                     if (c1.node() != c2.node())
                         groups.push([c1.node(), c2.node()]);
@@ -48,7 +63,7 @@ function groups(circles) {
             }
         });
     });
-
+    
     return groups;
 }
 
